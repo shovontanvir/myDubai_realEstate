@@ -5,17 +5,14 @@ const FilterSelect = (props) => {
     <select
       name={props.selectBy}
       id={props.selectBy}
-      className="py-2 pl-2 pr-5 rounded-lg bg-[#DDE5EB] bg-opacity-50 border-t-2 border-[#DDE5EB] mx-3"
+      className="py-1 pl-2 pr-5 rounded-lg bg-gradient-to-r from-[#073f7b] to-[#122C47] border-t-2 border-[#DDE5EB] mx-3"
     >
-      <option
-        className="font-roboto text-lg text-[#626262]"
-        value={props.searchBy}
-      >
+      <option className="font-roboto text-lg text-white" value={props.searchBy}>
         {props.searchBy}
       </option>
       {props.selectBy.map((item) => (
         <option
-          className="font-roboto text-lg text-[#626262]"
+          className="font-roboto text-lg text-white"
           value={item._id}
           key={item._id}
         >

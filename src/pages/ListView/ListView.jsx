@@ -1,15 +1,12 @@
 import React from "react";
-import FilterSearch from "../../components/FilterSearch";
-import Skeleton from "../../components/Skeleton/Skeleton";
-import ListItem from "../ListView/partials/ListItem";
-import GridItem from "./partials/GridItem";
+import ListItem from "./partials/ListItem";
 
-const GridView = (props) => {
+const ListView = (props) => {
   const properties = props.properties;
   return (
     <div className="w-full flex flex-wrap py-10 px-1">
       {properties.map((property) => (
-        <GridItem
+        <ListItem
           key={property.propertyName}
           coverImage={property.images.filter((image) => {
             if (image.type === "cover") {
@@ -21,10 +18,11 @@ const GridView = (props) => {
           developerName={property.developerType.name}
           propertyType={property.propertyType.name}
           unitSize={property.unitType.size}
+          description={property.amenities.description}
         />
       ))}
     </div>
   );
 };
 
-export default GridView;
+export default ListView;

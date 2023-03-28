@@ -6,14 +6,20 @@ import iconVillas from "../../../assets/images/property details page/icon-villas
 import iconBed from "../../../assets/images/property details page/icon-bed.svg";
 import ButtonOutline from "../../../components/ButtonOutline";
 
-const GridItem = (props) => {
+const ListItem = (props) => {
   return (
-    <div className="md:basis-1/2 lg:basis-1/3 px-1 py-3">
-      <div className="border border-[#D9D9D9] rounded-lg overflow-clip">
-        <img src={props.coverImage[0].path} alt="cover" />
-        <div className="p-5">
+    <div className="px-1 py-3 w-full">
+      <div className="flex flex-wrap border border-[#D9D9D9] rounded-lg overflow-clip p-1">
+        <div className="basis-1/3">
+          <img
+            src={props.coverImage[0].path}
+            alt="cover"
+            className="h-full rounded-l-md"
+          />
+        </div>
+        <div className="basis-2/3 p-5">
           <h1 className="font-roboto text-xl text-white">
-            {props.propertyName}
+            {props.propertyName} at {props.developerName}
           </h1>
           <div className="flex flex-wrap w-full">
             <div className="mr-4">
@@ -28,8 +34,6 @@ const GridItem = (props) => {
                 {props.developerName}
               </p>
             </div>
-          </div>
-          <div className="flex flex-wrap w-full">
             <div className="mr-4">
               <p className="font-montserrat text-white text-sm leading-4 flex my-2 pr-3">
                 <img src={iconVillas} alt="building" className="mr-1" />
@@ -43,14 +47,17 @@ const GridItem = (props) => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="flex px-5 py-2 border-t justify-between bg-gradient-to-r from-[#0A223A] via-[#214265] to-[#0A223A]">
-          <Button btnText="Details" className="mr-2" />
-          <ButtonOutline btnText="Enquiry" className="ml-2" />
+          <p className="font-montserrat text-white leading-7 my-4">
+            {props.description}
+          </p>
+          <div className="flex py-2 ">
+            <Button btnText="Details" className="mr-2" />
+            <ButtonOutline btnText="Enquiry" className="ml-2" />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default GridItem;
+export default ListItem;

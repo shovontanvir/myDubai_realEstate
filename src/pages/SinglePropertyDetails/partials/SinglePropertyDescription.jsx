@@ -25,7 +25,7 @@ const SinglePropertyDescription = (props) => {
             {propertyDetails.developerType.name}
           </p>
           <p className="font-montserrat text-[#535353] text-sm leading-4 flex my-2">
-            <img src={iconLocationBlack} alt="Location" className="mr-1" />{" "}
+            <img src={iconLocationBlack} alt="Location" className="mr-1" />
             {propertyDetails.propertyArea.areaName}
           </p>
           {propertyDescription.map((paragraph, index) => (
