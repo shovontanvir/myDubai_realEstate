@@ -3,8 +3,7 @@ import FilterSelect from "./FilterSelect";
 import { useQuery } from "react-query";
 import { getApiData } from "../Services/apiFunctions";
 import { useStateValue } from "../states/StateProvider";
-import listView from "../assets/images/global/list-view.svg";
-import gridView from "../assets/images/global/grid-view.svg";
+import HeadingBox from "./HeadingBox";
 
 const FilterSearch = (props) => {
   const [{ lang, viewType }, dispatch] = useStateValue();
@@ -34,12 +33,7 @@ const FilterSearch = (props) => {
 
   return (
     <section className="w-full flex justify-between">
-      <div className="px-10 py-1 bg-[#042C51] relative">
-        <div className="h-full w-1 bg-[#F1BF3F] absolute left-0 top-0 animate-pulse"></div>
-        <h1 className="font-roboto font-medium text-[1.75rem] text-white">
-          {props.title}
-        </h1>
-      </div>
+      <HeadingBox heading={props.title} />
       <div className="flex items-center">
         <FilterSelect
           searchBy="Development Type"
@@ -54,7 +48,10 @@ const FilterSearch = (props) => {
           selectBy={filterList.propertyAreas}
         />
         <div className="flex">
-          <span onClick={() => switchViewType("list")}>
+          <span
+            className="hover:scale-125 transition duration-300"
+            onClick={() => switchViewType("list")}
+          >
             <svg
               width="35"
               height="35"
@@ -108,7 +105,10 @@ const FilterSearch = (props) => {
               </defs>
             </svg>
           </span>
-          <span onClick={() => switchViewType("grid")}>
+          <span
+            className="hover:scale-125 transition duration-300"
+            onClick={() => switchViewType("grid")}
+          >
             <svg
               width="35"
               height="35"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BtnHexagon from "../../components/BtnHexagon";
 import FilterSearch from "../../components/FilterSearch";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import { useStateValue } from "../../states/StateProvider";
@@ -16,6 +17,7 @@ const ViewProperty = (props) => {
       ) : (
         <ListView properties={properties} />
       )}
+      {/* <BtnHexagon btnText="Hello!!" /> */}
     </Skeleton>
   );
 };

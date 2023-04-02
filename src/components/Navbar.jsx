@@ -65,6 +65,9 @@ const Navbar = () => {
               onChange={(e) => switchLang(e.target.value)}
               className="rounded-2xl px-2 uppercase bg-[#F1BF3F]"
             >
+              <option value={lang} className="rounded-2xl bg-[#F1BF3F]">
+                {lang}
+              </option>
               {langList.map((lang) => (
                 <option
                   value={lang.value}

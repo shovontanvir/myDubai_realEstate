@@ -10,11 +10,17 @@ module.exports = {
         roboto: ['Roboto', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
         vidaloka: ['Vidaloka', 'serif'],
+        turretRoad: ['Turret Road', 'cursive'],
       },
       colors: {
         'brand': '#283646',
       },
+      backgroundImage: {
+        'footer': "url('../src/assets/images/global/footer-bg.png')",
+      }
     },
     },
-    plugins: [],
+    plugins: [
+      require('tailwind-scrollbar-hide')
+    ],
   }

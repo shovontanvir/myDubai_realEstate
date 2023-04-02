@@ -1,22 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Vidaloka&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Turret+Road:wght@200;300;400;500;700;800&family=Vidaloka&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.video-react-poster {
-    background-size: cover !important;
+@layer utilities{
+    .video-react-poster {
+        background-size: cover !important;
+    }
+
+    .video-react .video-react-big-play-button {
+        font-size: 3em !important;
+        height: 2em !important;
+        background-color: rgba(255, 0, 0, 0.6) !important;
+        border: 0.06666em solid #f00 !important;
+    }
+
+    .video-react .video-react-control:before,
+    .video-react .video-react-big-play-button:before {
+        position: relative !important;
+    }
+
+    .hex-btn {
+        display: flex;
+        background: transparent;
+    }
+
+
+    .hex-btn:before,
+    .hex-btn:after {
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        height: 49%;
+        /* background-color: #F1BF3F; */
+        /* z-index: -1; */
+    }
+
+    .hex-btn:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        border-top: #F1BF3F 1px solid !important;
+        border-left: #F1BF3F 1px solid !important;
+        border-right: #F1BF3F 1px solid !important;
+        border-bottom: none;
+        transform: perspective(25px) rotateX(15deg);
+    }
+
+    .hex-btn:after {
+        position: absolute;
+        top: 50.75%;
+        content: '';
+        border-bottom: #F1BF3F 1px solid !important;
+        border-left: #F1BF3F 1px solid !important;
+        border-right: #F1BF3F 1px solid !important;
+        border-top: none;
+        transform: perspective(25px) rotateX(-15deg);
+    }
 }
 
-.video-react .video-react-big-play-button {
-    font-size: 3em !important;
-    height: 2em !important;
-    background-color: rgba(255, 0, 0, 0.6) !important;
-    border: 0.06666em solid #f00 !important;
-}
 
-.video-react .video-react-control:before,
-.video-react .video-react-big-play-button:before {
-    position: relative !important;
-}

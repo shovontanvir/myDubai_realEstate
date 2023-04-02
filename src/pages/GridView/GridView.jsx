@@ -7,7 +7,7 @@ import GridItem from "./partials/GridItem";
 const GridView = (props) => {
   const properties = props.properties;
   return (
-    <div className="w-full flex flex-wrap py-10 px-1">
+    <div className="w-full max-h-[115vh] overflow-scroll scrollbar-hide flex flex-wrap my-10 px-1">
       {properties.map((property) => (
         <GridItem
           key={property.propertyName}

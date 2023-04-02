@@ -34,7 +34,7 @@ const RegisterForm = (props) => {
   // console.log(data);
 
   return (
-    <div className="bg-[#F3FAFF] p-10 border border-[#373F48] rounded-md xl:basis-1/3 text-center">
+    <div className="bg-gradient-to-r from-[#0A223A] via-[#214265] to-[#0A223A] p-5 border border-[#373F48] rounded-md xl:basis-1/3 text-center">
       <h1 className="font-montserrat text-lg leading-6">
         {props.propertyName} <br /> Register Your Interest
       </h1>
