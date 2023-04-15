@@ -1,26 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Button from "../../../components/Button";
-import axios from "axios";
 import { useQuery } from "react-query";
+import { getApiData } from "../../../Services/apiFunctions";
+import { useStateValue } from "../../../states/StateProvider";
 
 const RegisterForm = (props) => {
+  const [{ lang }] = useStateValue();
   const { register, handleSubmit } = useForm();
 
-  const getAllCountries = () => {
-    return new Promise((resolve, reject) => {
-      axios
-        .get("https://restcountries.com/v3.1/all")
-        .then((response) => {
-          resolve(response.data);
-        })
-        .catch(reject);
-    });
+  const getAllProperty = () => {
+    return getApiData(lang, "properties/1");
   };
 
-  const { isLoading, data, error, isError } = useQuery(
-    "all-country",
-    getAllCountries
+  const { isLoading, data, isError, error } = useQuery(
+    ["all-property"],
+    getAllProperty
   );
 
   if (isLoading) {
@@ -31,76 +25,87 @@ const RegisterForm = (props) => {
     return error.message;
   }
 
-  // console.log(data);
+  const langList = data.data.langList;
 
   return (
-    <div className="bg-gradient-to-r from-[#0A223A] via-[#214265] to-[#0A223A] p-5 border border-[#373F48] rounded-md xl:basis-1/3 text-center">
-      <h1 className="font-montserrat text-lg leading-6">
-        {props.propertyName} <br /> Register Your Interest
-      </h1>
-      <form
-        action=""
-        className="mt-8"
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
-      >
-        <input
-          type="text"
-          {...register("name", { required: true })}
-          id="name"
-          placeholder="Enter Your Name"
-          className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-        />
-        <input
-          type="email"
-          {...register("email", { required: true })}
-          id="email"
-          placeholder="Enter Your Email"
-          className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-        />
-        <div className="flex items-center">
-          <select
-            name="country"
-            id="country"
-            className="w-12 aspect-square -mt-3 mr-3 border p-2 border-[#A8A8A8] rounded-md"
+    <div className="bg-gradient-to-r from-[#0A223A] via-[#214265] to-[#0A223A] p-5 border border-[#373F48] rounded-md xl:basis-1/3 text-center flex items-center">
+      <div className="w-full">
+        <h1 className="font-montserrat text-lg leading-6 text-white">
+          {props.propertyName} <br /> Register Your Interest
+        </h1>
+        <form
+          action=""
+          className="mt-8"
+          onSubmit={handleSubmit((data) => {
+            console.log(data);
+          })}
+        >
+          <div className="flex items-center">
+            <input
+              type="text"
+              {...register("name", { required: true })}
+              id="name"
+              placeholder="Enter Your Name"
+              className="w-full px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs custom-shadow bg-white bg-opacity-10 placeholder:text-white"
+            />
+          </div>
+          <div className="flex items-center">
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              id="email"
+              placeholder="Enter Your Email"
+              className="w-full px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs custom-shadow bg-white bg-opacity-10 placeholder:text-white"
+            />
+          </div>
+          <div className="flex items-center">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Phone Number"
+              className="w-full px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs custom-shadow bg-white bg-opacity-10 placeholder:text-white"
+            />
+          </div>
+          <div className="flex items-center">
+            <select
+              name="language"
+              id="language"
+              onChange={(e) => switchLang(e.target.value)}
+              className="w-full px-5 py-3 rounded-md mb-3 font-montserrat text-xs custom-shadow bg-white bg-opacity-10 placeholder:text-white text-white"
+            >
+              <option className="rounded-2xl font-montserrat text-xs">
+                Select a Language
+              </option>
+              {langList.map((lang) => (
+                <option
+                  value={lang.value}
+                  key={lang.value}
+                  className="rounded-2xl font-montserrat text-xs"
+                >
+                  {lang.title}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex items-center">
+            <textarea
+              placeholder="Description"
+              name="description"
+              id="description"
+              cols="30"
+              rows="3"
+              className="w-full px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs custom-shadow bg-white bg-opacity-10 placeholder:text-white"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full text-white rounded-md py-2 font-montserrat uppercase bg-gradient-to-r from-[#A7893A] via-[#BFA04B] to-[#A7893A]"
           >
-            {/* {data.map((country) => (
-              <option value="" ></option>
-            ))} */}
-          </select>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            placeholder="Phone Number"
-            className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-          />
-        </div>
-        {/* <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Enter Your Name"
-          className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-        />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Enter Your Email"
-          className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-        />
-        <textarea
-          placeholder="Description"
-          name="description"
-          id="description"
-          cols="30"
-          rows="3"
-          className="w-full border border-[#A8A8A8] px-5 py-3 rounded-md mb-3 placeholder:font-montserrat text-xs"
-        /> */}
-        <Button btnText="Submit your Interest" type="submit" />
-      </form>
+            Submit Your Interest
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

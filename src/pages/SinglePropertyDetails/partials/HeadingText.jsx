@@ -2,11 +2,14 @@ import React from "react";
 
 const HeadingText = (props) => {
   return (
-    <div className="w-full flex flex-col items-center relative mb-5">
-      <h1 className="font-turretRoad font-medium text-[1.351875rem] sm:text-2xl md:text-4xl lg:text-[2.5rem] p-3 text-white">
-        {props.innerText}
-      </h1>
-      <div className="w-full lg:w-3/4 border border-[#C0C0C0] absolute top-1/2 -z-50"></div>
+    <div className={`w-full flex flex-col ${props.className} relative mb-5`}>
+      <div className="px-24 py-1 bg-[#042C51] relative">
+        <div className="h-full w-1 bg-[#F1BF3F] absolute left-0 top-0"></div>
+        <div className="h-full w-1 bg-[#F1BF3F] absolute left-0 top-0 animate-ping"></div>
+        <h1 className="font-turretRoad font-medium text-[1.75rem] text-white">
+          {props.innerText}
+        </h1>
+      </div>
     </div>
   );
 };

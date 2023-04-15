@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import ViewProperty from "./pages/ViewProperty/ViewProperty";
 import { getApiData } from "./Services/apiFunctions";
 import { useStateValue } from "./states/StateProvider";
+import DeveloperListPage from "./pages/DeveloperList/DeveloperListPage";
 
 function App() {
   const [{ lang }] = useStateValue();
@@ -29,12 +30,13 @@ function App() {
 
   return (
     <section
-      className="bg-gradient-to-r from-[#000F1D] via-[#00182E] to-[#000F1D]"
+      className="bg-gradient-to-r from-[#000F1D] via-[#00182E] to-[#000F1D] -z-[1000]"
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
       <Navbar />
       <SinglePropertyDetails url="properties/1" />
       {/* <ViewProperty properties={allProperties} /> */}
+      {/* <DeveloperListPage /> */}
       <Footer />
     </section>
   );

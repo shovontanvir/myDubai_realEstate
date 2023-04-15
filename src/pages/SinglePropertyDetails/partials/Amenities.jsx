@@ -18,42 +18,50 @@ const Amenities = (props) => {
 
   return (
     <section>
-      <SkeletonSingleProperty className="justify-center text-center">
-        <HeadingText innerText="Amenities" />
-        <p className="font-montserrat text-[#242424] leading-7 py-2">
-          {amenities.description}
-        </p>
-        <div className="flex flex-wrap w-full justify-around">
-          <ul className="text-left w-full lg:w-auto pl-8 sm:pl-12 lg:pl-0">
-            {features1.map((item, index) => (
-              <li
-                className="flex items-center leading-8"
-                key={`features1-${index}`}
-              >
-                <img
-                  src={returnDownForward}
-                  alt="return-down-forward"
-                  className="mr-5 w-[20px] h-[11.43px]"
-                />
-                <span className="font-montserrat text-lg">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <ul className="text-left w-full lg:w-auto pl-8 sm:pl-12 lg:pl-0">
-            {features2.map((item, index) => (
-              <li
-                className="flex items-center leading-8"
-                key={`features2-${index}`}
-              >
-                <img
-                  src={returnDownForward}
-                  alt="return-down-forward"
-                  className="mr-5 w-[20px] h-[11.43px]"
-                />
-                <span className="font-montserrat text-lg">{item}</span>
-              </li>
-            ))}
-          </ul>
+      <SkeletonSingleProperty className="justify-center">
+        <HeadingText innerText="Amenities" className="items-start" />
+        <div className="flex justify-between">
+          <div className="basis-1/3 pr-10">
+            <p className="font-montserrat text-white leading-7 text-justify py-2">
+              {amenities.description}
+            </p>
+          </div>
+          <div className="flex flex-wrap basis-2/3 pl-10 justify-between">
+            <ul className="text-left w-full lg:w-auto pl-8 sm:pl-12 lg:pl-0">
+              {features1.map((item, index) => (
+                <li
+                  className="flex items-center leading-8"
+                  key={`features1-${index}`}
+                >
+                  <img
+                    src={returnDownForward}
+                    alt="return-down-forward"
+                    className="mr-5 w-[20px] h-[11.43px]"
+                  />
+                  <span className="font-montserrat text-white text-lg">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <ul className="text-left w-full lg:w-auto pl-8 sm:pl-12 lg:pl-0">
+              {features2.map((item, index) => (
+                <li
+                  className="flex items-center leading-8"
+                  key={`features2-${index}`}
+                >
+                  <img
+                    src={returnDownForward}
+                    alt="return-down-forward"
+                    className="mr-5 w-[20px] h-[11.43px]"
+                  />
+                  <span className="font-montserrat text-white text-lg">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </SkeletonSingleProperty>
     </section>

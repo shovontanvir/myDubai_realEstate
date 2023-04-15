@@ -6,11 +6,13 @@ module.exports = {
       extend: {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
+        openSans: ['Open Sans', 'sans-serif'],
         oswald: ['Oswald', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
         vidaloka: ['Vidaloka', 'serif'],
         turretRoad: ['Turret Road', 'cursive'],
+        asul: ['Asul', 'sans-serif'],
       },
       colors: {
         'brand': '#283646',

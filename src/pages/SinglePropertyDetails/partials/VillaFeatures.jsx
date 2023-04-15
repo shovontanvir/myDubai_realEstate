@@ -12,7 +12,7 @@ const VillaFeatures = (props) => {
   return (
     <section className="mb-8">
       <SkeletonSingleProperty>
-        <HeadingText innerText={villa.propertyName} />
+        <HeadingText innerText={villa.propertyName} className="items-center" />
         <div className="flex flex-wrap w-full">
           <div className="lg:basis-1/2 flex flex-wrap w-full lg:pr-6">
             <FeatureItem

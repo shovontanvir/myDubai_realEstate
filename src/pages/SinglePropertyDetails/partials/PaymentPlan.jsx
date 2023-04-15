@@ -9,7 +9,7 @@ const PaymentPlan = (props) => {
   return (
     <section className="mb-5">
       <SkeletonSingleProperty>
-        <HeadingText innerText="Payment Plan" />
+        <HeadingText innerText="Payment Plan" className="items-center" />
         <div className="w-full relative overflow-clip">
           <div className="w-full absolute top-9 left-1/2 -z-50">
             <div className="border border-dashed w-[70%] mx-auto relative -left-1/2 -z-50"></div>
