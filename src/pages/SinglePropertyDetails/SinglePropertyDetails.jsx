@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { getApiData } from "../../Services/apiFunctions";
+import { getApiData } from "../../Services/ApiFunctions";
 import Amenities from "./partials/Amenities";
 import Downloads from "./partials/Downloads";
 import Highlights from "./partials/Highlights";

@@ -3,7 +3,7 @@ import Skeleton from "./Skeleton/Skeleton";
 import logo from "../assets/images/global/logo.png";
 import calender from "../assets/images/global/calendar-outline.svg";
 import { useQuery } from "react-query";
-import { getApiData } from "../Services/apiFunctions";
+import { getApiData } from "../Services/ApiFunctions";
 import { useStateValue } from "../states/StateProvider";
 
 const Navbar = () => {

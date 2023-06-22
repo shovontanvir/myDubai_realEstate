@@ -3,7 +3,7 @@ import SinglePropertyDetails from "../src/pages/SinglePropertyDetails/SingleProp
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ViewProperty from "./pages/ViewProperty/ViewProperty";
-import { getApiData } from "./Services/apiFunctions";
+import { getApiData } from "./Services/ApiFunctions";
 import { useStateValue } from "./states/StateProvider";
 import DeveloperListPage from "./pages/DeveloperList/DeveloperListPage";
 
@@ -34,8 +34,8 @@ function App() {
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
       <Navbar />
-      <SinglePropertyDetails url="properties/1" />
-      {/* <ViewProperty properties={allProperties} /> */}
+      {/* <SinglePropertyDetails url="properties/1" /> */}
+      <ViewProperty properties={allProperties} />
       {/* <DeveloperListPage /> */}
       <Footer />
     </section>

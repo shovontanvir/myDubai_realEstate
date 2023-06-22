@@ -2,7 +2,7 @@ import React from "react";
 import DevelopersDescription from "./partials/DevelopersDescription";
 import DeveloperList from "./partials/DeveloperList";
 import { useQuery } from "react-query";
-import { getApiData } from "../../Services/apiFunctions";
+import { getApiData } from "../../Services/ApiFunctions";
 import { useStateValue } from "../../states/StateProvider";
 
 const DeveloperListPage = () => {

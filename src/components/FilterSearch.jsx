@@ -1,7 +1,7 @@
 import React from "react";
 import FilterSelect from "./FilterSelect";
 import { useQuery } from "react-query";
-import { getApiData } from "../Services/apiFunctions";
+import { getApiData } from "../Services/ApiFunctions";
 import { useStateValue } from "../states/StateProvider";
 import HeadingBox from "./HeadingBox";
 
